@@ -5,7 +5,13 @@
   "scripts": {
     "test": "playwright test --reporter=list  --workers 1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "amqplib": "^0.10.5",
+    "express": "^4.21.2",
+    "fs": "^0.0.1-security",
+    "hbs": "^4.2.0",
+    "path": "^0.12.7"
+  },
   "devDependencies": {
     "@playwright/test": "^1.37.1",
     "axios": "^1.3.1",

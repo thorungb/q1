@@ -70,6 +70,27 @@ async function main() {
     });
 
     //
+    // Web page to show advertisements.
+    //
+    app.get("/advertise", async (req, res) => {
+        const adsResponse = await axios.get("http://advertise/advertise");
+        res.render("advertisements", { advertisements: adsResponse.data.advertisements });
+    });
+
+    //
+    // API route to fetch advertisements.
+    //
+    app.get("/api/advertisements", async (req, res) => {
+        try {
+            const adsResponse = await axios.get("http://advertise/api/advertisements");
+            res.json(adsResponse.data);
+        } catch (error) {
+            console.error("Error fetching advertisements:", error);
+            res.status(500).json({ error: "Failed to fetch advertisements" });
+        }
+    });
+
+    //
     // HTTP GET route that streams video to the user's browser.
     //
     app.get("/api/video", async (req, res) => {
